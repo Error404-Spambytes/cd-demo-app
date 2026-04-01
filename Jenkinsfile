@@ -16,9 +16,9 @@ pipeline {
         }
 
         stage('Prepare Deployment') {
-            steps {
-                sh 'mkdir -p deploy'
-                sh 'cp index.html deploy/'
+              steps {
+        bat 'mkdir deploy'
+        bat 'copy index.html deploy\\'
             }
         }
 
