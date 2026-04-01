@@ -15,15 +15,16 @@ pipeline {
             }
         }
 
-        stage('Test') {
+        stage('Prepare Deployment') {
             steps {
-                echo "Running tests..."
+                sh 'mkdir -p deploy'
+                sh 'cp index.html deploy/'
             }
         }
 
         stage('Deploy') {
             steps {
-                echo "Deploying application..."
+                echo "Deployment stage completed"
             }
         }
     }
