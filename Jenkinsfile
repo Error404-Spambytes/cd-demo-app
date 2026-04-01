@@ -16,15 +16,17 @@ pipeline {
         }
 
         stage('Prepare Deployment') {
-              steps {
-        bat 'mkdir deploy'
-        bat 'copy index.html deploy\\'
+            steps {
+                bat '''
+                if not exist deploy mkdir deploy
+                copy /Y index.html deploy\\
+                '''
             }
         }
 
         stage('Deploy') {
             steps {
-                echo "Deployment stage completed"
+                echo "Deployment completed successfully"
             }
         }
     }
